@@ -273,10 +273,11 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!validaCampoNumerico(telefone)){//! negação
                 mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
             }
-            
-            
+            if(!validaCampoNumerico(telefone)){//! negação
+                mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
+            }    
         }
-        mensagemErro("Teste");
+        
         
 
     }//GEN-LAST:event_jButton3ActionPerformed
