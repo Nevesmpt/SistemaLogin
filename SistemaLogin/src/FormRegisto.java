@@ -34,12 +34,12 @@ public class FormRegisto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ctxLogin1 = new javax.swing.JTextField();
-        ctxLogin2 = new javax.swing.JTextField();
-        ctxLogin3 = new javax.swing.JTextField();
-        ctxLogin4 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        ctxNome = new javax.swing.JTextField();
+        ctxEmail = new javax.swing.JTextField();
+        ctxMorada = new javax.swing.JTextField();
+        ctxNif = new javax.swing.JTextField();
+        ctxPassword = new javax.swing.JPasswordField();
+        ctxRePassword = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
@@ -88,27 +88,27 @@ public class FormRegisto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Password");
 
-        ctxLogin1.addActionListener(new java.awt.event.ActionListener() {
+        ctxNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctxLogin1ActionPerformed(evt);
+                ctxNomeActionPerformed(evt);
             }
         });
 
-        ctxLogin2.addActionListener(new java.awt.event.ActionListener() {
+        ctxEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctxLogin2ActionPerformed(evt);
+                ctxEmailActionPerformed(evt);
             }
         });
 
-        ctxLogin3.addActionListener(new java.awt.event.ActionListener() {
+        ctxMorada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctxLogin3ActionPerformed(evt);
+                ctxMoradaActionPerformed(evt);
             }
         });
 
-        ctxLogin4.addActionListener(new java.awt.event.ActionListener() {
+        ctxNif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctxLogin4ActionPerformed(evt);
+                ctxNifActionPerformed(evt);
             }
         });
 
@@ -137,7 +137,7 @@ public class FormRegisto extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(ctxLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ctxNif, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,9 +145,9 @@ public class FormRegisto extends javax.swing.JFrame {
                                         .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(ctxLogin1)
-                                        .addComponent(ctxLogin2)
-                                        .addComponent(ctxLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(ctxNome)
+                                        .addComponent(ctxEmail)
+                                        .addComponent(ctxMorada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
@@ -155,10 +155,10 @@ public class FormRegisto extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jPasswordField1))
+                                        .addComponent(ctxPassword))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jPasswordField2)))))
+                                        .addComponent(ctxRePassword)))))
                         .addGap(171, 171, 171))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -176,28 +176,28 @@ public class FormRegisto extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ctxLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctxLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctxEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctxLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctxMorada, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctxLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctxNif, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctxRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,21 +218,21 @@ public class FormRegisto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ctxLoginActionPerformed
 
-    private void ctxLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxLogin1ActionPerformed
+    private void ctxNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctxLogin1ActionPerformed
+    }//GEN-LAST:event_ctxNomeActionPerformed
 
-    private void ctxLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxLogin2ActionPerformed
+    private void ctxEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctxLogin2ActionPerformed
+    }//GEN-LAST:event_ctxEmailActionPerformed
 
-    private void ctxLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxLogin3ActionPerformed
+    private void ctxMoradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxMoradaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctxLogin3ActionPerformed
+    }//GEN-LAST:event_ctxMoradaActionPerformed
 
-    private void ctxLogin4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxLogin4ActionPerformed
+    private void ctxNifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxNifActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctxLogin4ActionPerformed
+    }//GEN-LAST:event_ctxNifActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FormRegisto fr = new FormRegisto();
@@ -284,11 +284,13 @@ public class FormRegisto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ctxEmail;
     private javax.swing.JTextField ctxLogin;
-    private javax.swing.JTextField ctxLogin1;
-    private javax.swing.JTextField ctxLogin2;
-    private javax.swing.JTextField ctxLogin3;
-    private javax.swing.JTextField ctxLogin4;
+    private javax.swing.JTextField ctxMorada;
+    private javax.swing.JTextField ctxNif;
+    private javax.swing.JTextField ctxNome;
+    private javax.swing.JPasswordField ctxPassword;
+    private javax.swing.JPasswordField ctxRePassword;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -299,7 +301,5 @@ public class FormRegisto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     // End of variables declaration//GEN-END:variables
 }
