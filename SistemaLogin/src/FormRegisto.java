@@ -1,5 +1,6 @@
 
 import static java.lang.Character.isDigit;
+import static java.lang.Character.isLetter;
 import javax.swing.JOptionPane;
 
 /*
@@ -270,11 +271,13 @@ public class FormRegisto extends javax.swing.JFrame {
             mensagemErro("Preencha todos os campos");
             
         }else{
+            if(!validaNome(nome))
+                mensagemErro("Nome só pode conter mais de 2 letras");
             if(!validaCampoNumerico(telefone)){//! negação
                 mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
             }
-            if(!validaCampoNumerico(telefone)){//! negação
-                mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
+            if(!validaCampoNumerico(nif)){//! negação
+                mensagemErro("O  " + "de ser numérico e ter 9 digitos");
             }    
         }
         
@@ -359,4 +362,19 @@ public class FormRegisto extends javax.swing.JFrame {
         }
         return true;
     }
+
+    private boolean validaNome(String nome) {
+        int x, contador=0, n = nome.length();
+        if(n<2)
+            return false;
+        else{
+            for (x=0;x<n;x++){
+                n = nome.charAt(x);
+                if(isLetter(n))
+                    contador++;  
+                        
+        }
+    }
+        
+        
 }
