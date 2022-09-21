@@ -1,4 +1,5 @@
 
+import static java.lang.Character.isDigit;
 import javax.swing.JOptionPane;
 
 /*
@@ -269,6 +270,9 @@ public class FormRegisto extends javax.swing.JFrame {
             mensagemErro("Preencha todos os campos");
             
         }else{
+            if(!validaCampoNumerico(telefone)){//! negação
+                mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
+            }
             
             
         }
@@ -337,4 +341,21 @@ public class FormRegisto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
+
+    private boolean validaCampoNumerico(String telefone) {
+        int x, contador=0, t = telefone.length();
+        char c;
+        if(t!=9)
+            return false;
+        else{
+            for(x=0;x<t;x++){
+                c = telefone.charAt(x);
+                if(isDigit(c))
+                    contador++;       
+            }
+            if(t!=contador)
+                return false;
+        }
+        return true;
+    }
 }
