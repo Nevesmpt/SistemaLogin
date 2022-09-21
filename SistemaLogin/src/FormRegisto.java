@@ -265,6 +265,13 @@ public class FormRegisto extends javax.swing.JFrame {
         String nif = ctxNif.getText();
         String pass = ctxPassword.getText();
         String rePass = ctxRePassword.getText();
+        if(nome.equals("") || morada.equals("")||telefone.equals("")||nif.equals("")|| pass.equals("")|| rePass.equals("")){
+            mensagemErro("Preencha todos os campos");
+            
+        }else{
+            
+            
+        }
         mensagemErro("Teste");
         
 
