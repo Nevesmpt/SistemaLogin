@@ -460,7 +460,7 @@ public class FormRegisto extends javax.swing.JFrame {
             if (isLowerCase(c))//verificação minusculas
                 minusculas++;
         }    
-            if ((numeros<2) || (maiusculas<2) || (minusculas<2) || (especiais<2))
+            if ((numeros<1) || (maiusculas<1) || (minusculas<1) || (especiais<1))
                     return false;
                 
         }
