@@ -273,14 +273,22 @@ public class FormRegisto extends javax.swing.JFrame {
         }else{
             if(!validaNome(nome))
                 mensagemErro("Nome só pode conter mais de 2 letras");
+            
+            
             if(!validaCampoNumerico(telefone)){//! negação
                 mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
             }
             if(!validaCampoNumerico(nif)){//! negação
                 mensagemErro("O  " + "de ser numérico e ter 9 digitos");    
             } 
+            
             if(!validaMorada(morada))
                 mensagemErro("Morada tem de ter mais de 5 caracteres");
+            
+            if(!validaEmail(email))
+                mensagemErro("Email inválido");
+            if(!validaPass(pass))
+                mensagemErro("password inválida");
         }
         
         
@@ -367,12 +375,13 @@ public class FormRegisto extends javax.swing.JFrame {
 
     private boolean validaNome(String nome) {
         int x, contador=0, n = nome.length();
+        char c;
         if(n<2)
             return false;
         else{
             for (x=0;x<n;x++){
-                n = nome.charAt(x);
-                if(isLetter(n))
+                c = nome.charAt(x);
+                if(isLetter(c))
                     contador++;  
                         
         }
@@ -384,13 +393,39 @@ public class FormRegisto extends javax.swing.JFrame {
 
     private boolean validaMorada(String morada) {
         int x, contador=0, n = morada.length();
+        char c;
         if(n<6)
             return false;
         else{
             for (x=0;x<n;x++){
-                n = morada.charAt(x);
-                if(isLetter(n))
-                    contador++;  
+                c = morada.charAt(x);
+                if(isLetter(c))
+                    contador++;
+                }
+        if(n!=contador)
+                return false;    
+    }
+    return true;   
+    }
+
+    private boolean validaEmail(String email) {
+        int k,z,p; 
+                
+        k = email.indexOf("@");
+        if (k==-1)
+            return false;
+        z = email.indexOf('.');
+        if (z==-1)
+            return false;
+        //p =email.indexOf('@','k');
+        String nova = email.substring(k+1,email.length());
+        p= nova.indexOf('@');
+        //System.out.println("texto: "+nova+" p: "+p+" K: "+k);
+        if  (p==-1)
+            return true;
+        else
+            return false;
+                    
     }
     
 }
