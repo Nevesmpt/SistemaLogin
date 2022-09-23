@@ -289,11 +289,11 @@ public class FormRegisto extends javax.swing.JFrame {
             
             if(!validaEmail(email))
                 mensagemErro("Email inválido");
-            if(!validaPass(pass))
+            if(!validaPass(pass)){
                 mensagemErro("password inválida");
-            if(pass.equals(repass))
+            if(!pass.equals(rePass))
                 System.out.println("Operação realizada com sucesso");
-            else
+            }else
                 System.out.println("Passwords têm de coincidir");
         }
         
@@ -436,10 +436,10 @@ public class FormRegisto extends javax.swing.JFrame {
 
     private boolean validaPass(String pass) {
         int x;
-        int numeros;
-        int maiusculas;
-        int minusculas;
-        int especiais;
+        int numeros=0;
+        int maiusculas=0;
+        int minusculas=0;
+        int especiais=0;
         
         char c;
         if (pass.length()<8)
@@ -449,8 +449,8 @@ public class FormRegisto extends javax.swing.JFrame {
             c = pass.charAt(x);    
             if(c==' ')        //verificação espaços
                 return false;
-                    if (notisDigit && notisLetter)
-                        especiais++;
+            if (!isDigit(c) && !isLetter(c))
+                especiais++;
             if(isDigit(c))//verificação números
                 numeros++;
                 
