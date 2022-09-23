@@ -277,8 +277,10 @@ public class FormRegisto extends javax.swing.JFrame {
                 mensagemErro("O campo telefone " + "de ser numérico e ter 9 digitos");
             }
             if(!validaCampoNumerico(nif)){//! negação
-                mensagemErro("O  " + "de ser numérico e ter 9 digitos");
-            }    
+                mensagemErro("O  " + "de ser numérico e ter 9 digitos");    
+            } 
+            if(!validaMorada(morada))
+                mensagemErro("Morada tem de ter mais de 5 caracteres");
         }
         
         
@@ -379,5 +381,16 @@ public class FormRegisto extends javax.swing.JFrame {
     }
     return true;         
  }
+
+    private boolean validaMorada(String morada) {
+        int x, contador=0, n = morada.length();
+        if(n<6)
+            return false;
+        else{
+            for (x=0;x<n;x++){
+                n = morada.charAt(x);
+                if(isLetter(n))
+                    contador++;  
+    }
     
 }
