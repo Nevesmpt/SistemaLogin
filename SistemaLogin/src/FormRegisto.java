@@ -374,7 +374,10 @@ public class FormRegisto extends javax.swing.JFrame {
                     contador++;  
                         
         }
+        if(n!=contador)
+                return false;    
     }
-        
-        
+    return true;         
+ }
+    
 }
