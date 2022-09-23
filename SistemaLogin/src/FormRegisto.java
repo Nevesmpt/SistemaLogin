@@ -289,15 +289,15 @@ public class FormRegisto extends javax.swing.JFrame {
             
             if(!validaEmail(email))
                 mensagemErro("Email inválido");
-            if(!validaPass(pass)){
+            if(!validaPass(pass))
                 mensagemErro("password inválida");
             if(!pass.equals(rePass))
-                System.out.println("Operação realizada com sucesso");
-            }else
-                System.out.println("Passwords têm de coincidir");
-        }
+                mensagemErro("passwords têm de coincidir");
+            }
+                
         
         
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
