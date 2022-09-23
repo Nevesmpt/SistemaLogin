@@ -1,6 +1,8 @@
 
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
+import static java.lang.Character.isLowerCase;
+import static java.lang.Character.isUpperCase;
 import javax.swing.JOptionPane;
 
 /*
@@ -289,6 +291,10 @@ public class FormRegisto extends javax.swing.JFrame {
                 mensagemErro("Email inválido");
             if(!validaPass(pass))
                 mensagemErro("password inválida");
+            if(pass.equals(repass))
+                System.out.println("Operação realizada com sucesso");
+            else
+                System.out.println("Passwords têm de coincidir");
         }
         
         
@@ -426,6 +432,40 @@ public class FormRegisto extends javax.swing.JFrame {
         else
             return false;
                     
+    }
+
+    private boolean validaPass(String pass) {
+        int x;
+        int numeros;
+        int maiusculas;
+        int minusculas;
+        int especiais;
+        
+        char c;
+        if (pass.length()<8)
+                return false;
+        else{
+        for(x=0;x<pass.length();x++){
+            c = pass.charAt(x);    
+            if(c==' ')        //verificação espaços
+                return false;
+                    if (notisDigit && notisLetter)
+                        especiais++;
+            if(isDigit(c))//verificação números
+                numeros++;
+                
+            if (isUpperCase(c))//verificação maiúsculas
+                maiusculas++;
+            
+            if (isLowerCase(c))//verificação minusculas
+                minusculas++;
+        }    
+            if ((numeros<2) || (maiusculas<2) || (minusculas<2) || (especiais<2))
+                    return false;
+                
+        }
+        return true;
+            
     }
     
 }
