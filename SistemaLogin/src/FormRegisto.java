@@ -290,7 +290,7 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!validaEmail(email))
                 mensagemErro("Email inválido");
             if(!validaPass(pass))
-                mensagemErro("password inválida");
+                mensagemErro("password inválida.Tem de ter 8 caracteres e pelos menos:1 maiuscula,1 minuscula e 1 caracter especial");
             if(!pass.equals(rePass))
                 mensagemErro("passwords têm de coincidir");
             }
