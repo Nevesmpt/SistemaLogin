@@ -54,7 +54,7 @@ public class FormRegisto extends javax.swing.JFrame {
         ctxPassword = new javax.swing.JPasswordField();
         ctxRePassword = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        ctxRegisto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         ctxTelefone = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -132,12 +132,12 @@ public class FormRegisto extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Nome");
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 204));
-        jButton3.setText("Registar Utilizador");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ctxRegisto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ctxRegisto.setForeground(new java.awt.Color(0, 102, 204));
+        ctxRegisto.setText("Registar Utilizador");
+        ctxRegisto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ctxRegistoActionPerformed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ public class FormRegisto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(ctxRegisto)
                         .addGap(42, 42, 42)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(157, 157, 157))
@@ -240,7 +240,7 @@ public class FormRegisto extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctxRegisto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
@@ -289,7 +289,7 @@ public class FormRegisto extends javax.swing.JFrame {
     
     
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ctxRegistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxRegistoActionPerformed
         String nome = ctxNome.getText();
         String email = ctxEmail.getText();
         String morada = ctxMorada.getText();
@@ -297,6 +297,7 @@ public class FormRegisto extends javax.swing.JFrame {
         String nif = ctxNif.getText();
         String pass = ctxPassword.getText();
         String rePass = ctxRePassword.getText();
+        String login = ctxUser.getText();
         if(nome.equals("") || morada.equals("")||telefone.equals("")||nif.equals("")|| pass.equals("")|| rePass.equals("")){
             mensagemErro("Preencha todos os campos");
             
@@ -322,7 +323,7 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!pass.equals(rePass))
                 mensagemErro("passwords têm de coincidir");
             }
-        String ctx_user = ctxUser.getText();
+        String ctx_user = ctxRegisto.getText();
         File ficheiro = new File(ctx_user+".txt");
         
             
@@ -345,6 +346,8 @@ public class FormRegisto extends javax.swing.JFrame {
                      bw.write(pass);
                      bw.newLine();
                      bw.write(rePass);
+                     bw.newLine();
+                     bw.write(login);
                      bw.close();
                      fw.close();
                 
@@ -359,7 +362,7 @@ public class FormRegisto extends javax.swing.JFrame {
         
 
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ctxRegistoActionPerformed
 
     private void ctxTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctxTelefoneActionPerformed
         // TODO add your handling code here:
@@ -412,11 +415,11 @@ public class FormRegisto extends javax.swing.JFrame {
     private javax.swing.JTextField ctxNome;
     private javax.swing.JPasswordField ctxPassword;
     private javax.swing.JPasswordField ctxRePassword;
+    private javax.swing.JButton ctxRegisto;
     private javax.swing.JTextField ctxTelefone;
     private javax.swing.JTextField ctxUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

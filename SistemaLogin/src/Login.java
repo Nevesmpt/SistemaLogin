@@ -126,9 +126,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if ctxRegisto.txt exists()){
+        
+        
+    }
+            
+       
+                    
+
+
+
+
+
         /* Validação através da recolha e comparação de password e login
         1º verificar se existe ficheiro "login.txt"
-        2º verificar se a password corresponde à pass que está no ficheiro
+        se sim abrir,ficheiro,ler obter password
+        2º verificar se a password ctxpass corresponde à pass que está no ficheiro
+        s[1] equals(ctx.getText())
         se sim, segue para a JFrame Form MenuOpcoes
         */
         // se login e password correctos, faz isto que se segue
