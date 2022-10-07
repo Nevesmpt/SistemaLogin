@@ -42,6 +42,11 @@ public class Login extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(51, 153, 0));
         jButton1.setText("Iniciar Sessão");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginLogo.png"))); // NOI18N
 
@@ -71,9 +76,7 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(37, 37, 37))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addGap(18, 18, 18))))
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ctxPassword)
@@ -121,6 +124,21 @@ public class Login extends javax.swing.JFrame {
         fr.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /* Validação através da recolha e comparação de password e login
+        1º verificar se existe ficheiro "login.txt"
+        2º verificar se a password corresponde à pass que está no ficheiro
+        se sim, segue para a JFrame Form MenuOpcoes
+        */
+        // se login e password correctos, faz isto que se segue
+        MenuOpcoes mo = new MenuOpcoes();
+        this.setVisible(false);
+        mo.setVisible(true);
+        
+        //senao, lança um alerta de dados de login incorrectos
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     public static void main(String args[]) {
