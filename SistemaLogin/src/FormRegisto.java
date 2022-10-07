@@ -1,8 +1,14 @@
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Character.isLowerCase;
 import static java.lang.Character.isUpperCase;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -128,7 +134,7 @@ public class FormRegisto extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 102, 204));
-        jButton3.setText("Validar Dados");
+        jButton3.setText("Registar Utilizador");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -158,7 +164,7 @@ public class FormRegisto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -316,6 +322,38 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!pass.equals(rePass))
                 mensagemErro("passwords têm de coincidir");
             }
+        String ctx_user = ctxUser.getText();
+        File ficheiro = new File(ctx_user+".txt");
+        
+            
+            try {
+                if(!ficheiro.exists()){
+                    ficheiro.createNewFile();
+                }
+                     FileWriter fw = new FileWriter(ficheiro,true);
+                     BufferedWriter bw = new BufferedWriter(fw);
+                     bw.write(nome);
+                     bw.newLine();
+                     bw.write(email);
+                     bw.newLine();
+                     bw.write(morada);
+                     bw.newLine();
+                     bw.write(telefone);
+                     bw.newLine();
+                     bw.write(nif);
+                     bw.newLine();
+                     bw.write(pass);
+                     bw.newLine();
+                     bw.write(rePass);
+                     bw.close();
+                     fw.close();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(FormRegisto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+                
+           
                 
         
         
