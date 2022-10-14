@@ -173,12 +173,6 @@ public class Login extends javax.swing.JFrame {
         
     }
             
-       
-                    
-
-
-
-
 
         /* Validação através da recolha e comparação de password e login
         1º verificar se existe ficheiro "login.txt"
@@ -188,10 +182,6 @@ public class Login extends javax.swing.JFrame {
         se sim, segue para a JFrame Form MenuOpcoes
         */
         // se login e password correctos, faz isto que se segue
-        MenuOpcoes mo = new MenuOpcoes();
-        this.setVisible(false);
-        mo.setVisible(true);
-        
         //senao, lança um alerta de dados de login incorrectos
         
     }//GEN-LAST:event_jButton1ActionPerformed
