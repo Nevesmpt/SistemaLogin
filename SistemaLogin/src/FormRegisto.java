@@ -331,7 +331,7 @@ public class FormRegisto extends javax.swing.JFrame {
                 if(!ficheiro.exists()){
                     ficheiro.createNewFile();
                 }
-                     FileWriter fw = new FileWriter(ficheiro,true);
+                     FileWriter fw = new FileWriter(ficheiro);
                      BufferedWriter bw = new BufferedWriter(fw);
                      bw.write(pass);
                      bw.newLine();

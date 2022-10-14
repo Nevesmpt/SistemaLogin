@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-    
+    public static String login;
     public Login() {
         initComponents();
     }
@@ -135,7 +135,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        String login = ctxLogin.getText();
+        login = ctxLogin.getText();
         String pass = ctxPassword.getText();
            
        
