@@ -1,4 +1,11 @@
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class Login extends javax.swing.JFrame {
 
     
@@ -127,8 +134,37 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        if ctxRegisto.txt exists()){
-        
+        String login = ctxLogin.getText();
+        String pass = ctxPassword.getText();
+    
+    
+        File ficheiro = new File(login+".txt");
+            if(!ficheiro.exists()){
+                mensagemErro (" Login Inválido");   
+            }else{
+                    try{
+                        int count = 0;
+                        FileReader fr = new FileReader (ficheiro);
+                        BufferedReader br = new BufferedReader (fr);
+                        while (br.ready()){
+                            String linha = br.readLine (); count ++;
+                                if (count == 1){
+                                    if (pass.equals(linha)){
+                                        MenuOpcoes mo = new MenuOpcoes ();
+                                        this.setVisible(false);
+                                        mo.setVisible(true);    
+                                    }else{
+                                           mensagemErro ("Password inválida"); 
+                        }
+                    }
+                }
+                br.close();
+                br.close();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            } catch (IOException ioe) {
+                
+            }
         
     }
             
@@ -191,4 +227,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    private void mensagemErro(String password_inválida) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

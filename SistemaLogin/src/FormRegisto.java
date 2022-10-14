@@ -323,8 +323,8 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!pass.equals(rePass))
                 mensagemErro("passwords têm de coincidir");
             }
-        String ctx_user = ctxRegisto.getText();
-        File ficheiro = new File(ctx_user+".txt");
+        //String ctx_user = ctxRegisto.getText();
+        File ficheiro = new File(login+".txt");
         
             
             try {
@@ -333,6 +333,10 @@ public class FormRegisto extends javax.swing.JFrame {
                 }
                      FileWriter fw = new FileWriter(ficheiro,true);
                      BufferedWriter bw = new BufferedWriter(fw);
+                     bw.write(pass);
+                     bw.newLine();
+                     bw.write(rePass);
+                     bw.newLine();
                      bw.write(nome);
                      bw.newLine();
                      bw.write(email);
@@ -342,10 +346,6 @@ public class FormRegisto extends javax.swing.JFrame {
                      bw.write(telefone);
                      bw.newLine();
                      bw.write(nif);
-                     bw.newLine();
-                     bw.write(pass);
-                     bw.newLine();
-                     bw.write(rePass);
                      bw.newLine();
                      bw.write(login);
                      bw.close();
