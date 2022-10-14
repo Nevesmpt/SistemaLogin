@@ -283,7 +283,7 @@ public class FormRegisto extends javax.swing.JFrame {
 
     
     
-    private void mensagemErro(String erro){
+    public static void mensagemErro(String erro){
         JOptionPane.showMessageDialog(null, erro, "Erro validação", JOptionPane.ERROR_MESSAGE);
     } 
     

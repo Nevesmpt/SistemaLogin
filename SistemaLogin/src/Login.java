@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 
 public class Login extends javax.swing.JFrame {
@@ -136,11 +137,15 @@ public class Login extends javax.swing.JFrame {
         
         String login = ctxLogin.getText();
         String pass = ctxPassword.getText();
-    
+           
+       
     
         File ficheiro = new File(login+".txt");
             if(!ficheiro.exists()){
-                mensagemErro (" Login Inválido");   
+                FormRegisto.mensagemErro("Efectue registo de utilizador ");
+            if(ctxLogin.equals("") || ctxPassword.equals(""));    
+                FormRegisto.mensagemErro("Dados de Login Inválidos");            
+                 
             }else{
                     try{
                         int count = 0;
@@ -154,7 +159,7 @@ public class Login extends javax.swing.JFrame {
                                         this.setVisible(false);
                                         mo.setVisible(true);    
                                     }else{
-                                           mensagemErro ("Password inválida"); 
+                                         FormRegisto.mensagemErro("Dados de Login Inválidos");    
                         }
                     }
                 }
