@@ -1,5 +1,10 @@
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -132,16 +137,52 @@ public class MenuOpcoes extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+        ArrayList<String> dados = new ArrayList<String>(); 
 
+
+
+        System.out.println("Insira o nome de utilizador a verificar :");
+
+        String login = FormRegisto.ler.nextLine();
+
+        File ficheiro = new File (login +".txt");
+
+        if(!ficheiro.exists()){
+
+            System.out.println("O utilizador não existe");
+
+        }else{     
+
+            try{
+
+                FileReader fr = new FileReader (ficheiro);
+
+                BufferedReader br = new BufferedReader (fr);
+
+                while (br.ready()){
+
+                    String linha = br.readLine ();
+
+                    System.out.println (linha);
+
+                }
+
+                br.close();
+
+                br.close();
+
+            } catch (FileNotFoundException ex) {
+
+                ex.printStackTrace();
+
+            } catch (IOException ioe) {
+
+                
+
+            }
+   
+    }//GEN-LAST:event_jButton3ActionPerformed
+    }
     /**
      * @param args the command line arguments
      */

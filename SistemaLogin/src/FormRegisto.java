@@ -7,6 +7,7 @@ import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Character.isLowerCase;
 import static java.lang.Character.isUpperCase;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,10 +22,10 @@ import javax.swing.JOptionPane;
  * @author mneves
  */
 public class FormRegisto extends javax.swing.JFrame {
+    
+    public static Scanner ler = new Scanner (System.in);
 
-    /**
-     * Creates new form FormRegisto
-     */
+   
     public FormRegisto() {
         initComponents();
     }
