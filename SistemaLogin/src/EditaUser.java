@@ -362,7 +362,7 @@ public class EditaUser extends javax.swing.JFrame {
     }
      private void preencheFormulario() {
     int cont = 0;
-    String[] lista = new String [7];
+    String[] lista = new String [8];
     FileReader fr;
       
             
@@ -374,13 +374,13 @@ public class EditaUser extends javax.swing.JFrame {
                 cont ++;
             }
                 ctxPassword.setText(lista[0]);
-                ctxRePassword.setText(lista[0]);
-                ctxNome.setText(lista[1]);
-                ctxEmail.setText(lista[2]);
-                ctxMorada.setText(lista[3]);
-                ctxTelefone.setText(lista[4]);
-                ctxNif.setText(lista[5]);
-                ctxUser.setText(lista[6]);
+                ctxRePassword.setText(lista[1]);
+                ctxNome.setText(lista[2]);
+                ctxEmail.setText(lista[3]);
+                ctxMorada.setText(lista[4]);
+                ctxTelefone.setText(lista[5]);
+                ctxNif.setText(lista[6]);
+                ctxUser.setText(lista[7]);
                 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(EditaUser.class.getName()).log(Level.SEVERE, null, ex);
