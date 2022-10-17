@@ -1,10 +1,15 @@
 
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,6 +27,7 @@ public class MenuOpcoes extends javax.swing.JFrame {
      */
     public MenuOpcoes() {
         initComponents();
+    
     }
 
     /**
@@ -149,8 +155,6 @@ public class MenuOpcoes extends javax.swing.JFrame {
         
         ArrayList<String> dados = new ArrayList<String>(); 
 
-
-
         System.out.println("Insira o nome de utilizador a verificar :");
 
         String login = FormRegisto.ler.nextLine();
@@ -192,7 +196,12 @@ public class MenuOpcoes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
+                
+        
+         
+  
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -241,4 +250,6 @@ public class MenuOpcoes extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
+
+   
 }
