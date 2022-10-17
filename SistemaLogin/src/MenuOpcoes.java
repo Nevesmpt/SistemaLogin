@@ -198,14 +198,18 @@ public class MenuOpcoes extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
                 
-        
+        EditaUser fr = new EditaUser();
+        this.setVisible(false);
+        fr.setVisible(true);
          
   
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+            Login log = new Login();
+        this.dispose();
+        log.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
     
     /**
