@@ -7,6 +7,7 @@ import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Character.isLowerCase;
 import static java.lang.Character.isUpperCase;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -324,6 +325,13 @@ public class FormRegisto extends javax.swing.JFrame {
             if(!pass.equals(rePass))
                 mensagemErro("passwords têm de coincidir");
             }
+        Integer.parseInt(telefone);
+        Integer.parseInt(nif);
+        try {
+            LigaBD.registaUtilizador(nome, email, morada, Integer.parseInt(telefone),  Integer.parseInt(nif) , login, pass);
+        } catch (SQLException ex) {
+            Logger.getLogger(FormRegisto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //String ctx_user = ctxRegisto.getText();
         File ficheiro = new File(login+".txt");
         
@@ -356,7 +364,7 @@ public class FormRegisto extends javax.swing.JFrame {
                 Logger.getLogger(FormRegisto.class.getName()).log(Level.SEVERE, null, ex);
             }
         
-                
+               
            
                 
         

@@ -11,7 +11,7 @@ public class LigaBD {
     
     public static Connection ligacao(){
         
-        String url = "jdbc:mysql://localhost:3306/rhcencal";
+        String url = "jdbc:mysql://localhost:3306/rhcencal?useSSL=false&serverTimezone=UTC"; 
         String user = "root";
         String password = "";
         Connection liga = null;
