@@ -10,6 +10,10 @@ import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Character.isLowerCase;
 import static java.lang.Character.isUpperCase;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,10 +24,12 @@ public class EditaUser extends javax.swing.JFrame {
     /**
      * Creates new form EditaUser
      */
-    public EditaUser() {
+    public EditaUser() throws SQLException {
         initComponents();
-            preencheFormulario();
-                
+            //preencheFormulario();
+            preencheViaBd();
+         
+       
     }
 
     /**
@@ -356,7 +362,11 @@ public class EditaUser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditaUser().setVisible(true);
+                try {
+                    new EditaUser().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(EditaUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -525,5 +535,27 @@ public class EditaUser extends javax.swing.JFrame {
                 
         }
         return true;
+    }
+
+    private void preencheViaBd() throws SQLException {
+        Connection conn = LigaBD.ligacao();
+        String sql = "SELECT * FROM utilizador WHERE login = '"+Login.login+"'";
+        PreparedStatement ps = conn.prepareStatement(sql);
+    
+        ResultSet rs = ps.executeQuery();
+        System.out.println("Login: "+Login.login);
+        while(rs.next()){
+            System.out.println("Entrei ");
+             ctxNome.setText(rs.getString("nome"));
+             ctxEmail.setText(rs.getString("email"));
+             ctxMorada.setText(rs.getString("morada"));
+             ctxTelefone.setText(""+rs.getInt("telefone"));
+             ctxNif.setText(""+rs.getInt("nif"));
+             ctxUser.setText(rs.getString("login"));
+             ctxPassword.setText(rs.getString("password"));
+             ctxRePassword.setText(rs.getString("password"));
+
+        }
+         
     }
 }
