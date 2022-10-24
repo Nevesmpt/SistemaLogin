@@ -284,6 +284,8 @@ public class EditaUser extends javax.swing.JFrame {
             mensagemErro("passwords têm de coincidir");
         }
         //String ctx_user = ctxRegisto.getText();
+         ActualizaBd();     
+        
         File ficheiro = new File(login+".txt");
 
         try {
@@ -554,8 +556,27 @@ public class EditaUser extends javax.swing.JFrame {
              ctxUser.setText(rs.getString("login"));
              ctxPassword.setText(rs.getString("password"));
              ctxRePassword.setText(rs.getString("password"));
+             
 
         }
          
+    }
+
+    private void ActualizaBd() {
+        String sql ="UPDATE utilizador SET nome=?,email=?,morada=?,telefone=?,nif=?,password=? WHERE login = ?";
+        PreparedStatement ps = liga.prepareStatement(query);
+        ps.setString(1, nome);
+        ps.setString(2,email);
+        ps.setString(3,morada);
+        ps.setInt(4,telefone);
+        ps.setInt(5,nif);
+        ps.setString(6,login);
+        ps.setString(7,password);
+        int retorno = ps.executeUpdate();
+        if(retorno>0){
+            System.out.printf("Novo registo actualizado");
+        }else{
+            System.out.println("Não foi possível actualizar BD!");
+        }
     }
 }
