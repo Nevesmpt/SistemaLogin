@@ -1,3 +1,7 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +18,7 @@ public class MostraUtilizadores extends javax.swing.JFrame {
      */
     public MostraUtilizadores() {
         initComponents();
+        MostraTabela();
     }
 
     /**
@@ -116,4 +121,15 @@ public class MostraUtilizadores extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void MostraTabela() {
+        //recolher tal e qual como formulário de edição, select * from utilizadores
+        Connection conn = LigaBD.ligacao();
+        String sql = "SELECT * FROM utilizador WHERE nome  = '"+Login.login+"'";
+        PreparedStatement ps;
+    }
+
+   
+       
+    
 }
