@@ -7,6 +7,8 @@ import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Character.isLowerCase;
 import static java.lang.Character.isUpperCase;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -332,6 +334,10 @@ public class FormRegisto extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(FormRegisto.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+     
+
         //String ctx_user = ctxRegisto.getText();
         File ficheiro = new File(login+".txt");
         

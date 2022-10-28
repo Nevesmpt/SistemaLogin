@@ -4,6 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -134,7 +140,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+            
         login = ctxLogin.getText();
         String pass = ctxPassword.getText();
            
@@ -147,8 +153,32 @@ public class Login extends javax.swing.JFrame {
                 FormRegisto.mensagemErro("Dados de Login Inválidos");            
                  
             }else{
-                    try{
-                        int count = 0;
+                   
+                    
+            try {             
+                System.out.println("login "+ctxLogin.getText()+"\n password "+ctxPassword.getText()); 
+                    String update = "SELECT * FROM utilizador WHERE login = '"+ctxLogin.getText()+"' and password = '"+ctxPassword.getText()+"'"; 
+                    Connection liga= LigaBD.ligacao(); 
+                    PreparedStatement ps; 
+                
+                ps = liga.prepareStatement(update);
+                 ResultSet rs= ps.executeQuery(); 
+                    if(rs.next()){ 
+                        MenuOpcoes MO = new MenuOpcoes(); 
+                        MO.setVisible(true); 
+                  }
+                    else{
+                         JOptionPane.showMessageDialog(null, "Dados inválidos", "erro", JOptionPane.ERROR_MESSAGE); 
+              
+                    }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+          
+            }     
+                                       
+                        
+                        /*int count = 0;
                         FileReader fr = new FileReader (ficheiro);
                         BufferedReader br = new BufferedReader (fr);
                         while (br.ready()){
@@ -164,12 +194,8 @@ public class Login extends javax.swing.JFrame {
                     }
                 }
                 br.close();
-                br.close();
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            } catch (IOException ioe) {
-                
-            }
+                br.close();*/
+            
         
     }
             
@@ -226,4 +252,6 @@ public class Login extends javax.swing.JFrame {
     private void mensagemErro(String password_inválida) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 }
