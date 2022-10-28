@@ -24,7 +24,7 @@ public class EditaUser extends javax.swing.JFrame {
     /**
      * Creates new form EditaUser
      */
-    public EditaUser() throws SQLException {
+    public EditaUser() {
         initComponents();
             //preencheFormulario();
             preencheViaBd();
@@ -277,14 +277,14 @@ public class EditaUser extends javax.swing.JFrame {
             mensagemErro("Morada tem de ter mais de 5 caracteres");
 
             if(!validaEmail(email))
-            mensagemErro("Email inválido");
+                mensagemErro("Email inválido");
             if(!validaPass(pass))
-            mensagemErro("password inválida.Tem de ter 8 caracteres e pelos menos:1 maiuscula,1 minuscula e 1 caracter especial");
+                mensagemErro("password inválida.Tem de ter 8 caracteres e pelos menos:1 maiuscula,1 minuscula e 1 caracter especial");
             if(!pass.equals(rePass))
-            mensagemErro("passwords têm de coincidir");
+                mensagemErro("passwords têm de coincidir");
         }
         //String ctx_user = ctxRegisto.getText();
-         ActualizaBd();     
+         ActualizaBd(nome,email,morada,telefone,nif,login,pass);     
         
         File ficheiro = new File(login+".txt");
 
@@ -364,11 +364,7 @@ public class EditaUser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new EditaUser().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(EditaUser.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new EditaUser().setVisible(true);
             }
         });
     }
@@ -539,12 +535,13 @@ public class EditaUser extends javax.swing.JFrame {
         return true;
     }
 
-    private void preencheViaBd() throws SQLException {
+    private void preencheViaBd()  {
         Connection conn = LigaBD.ligacao();
         String sql = "SELECT * FROM utilizador WHERE login = '"+Login.login+"'";
-        PreparedStatement ps = conn.prepareStatement(sql);
-    
-        ResultSet rs = ps.executeQuery();
+        PreparedStatement ps;
+        try {
+            ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
         System.out.println("Login: "+Login.login);
         while(rs.next()){
             System.out.println("Entrei ");
@@ -559,24 +556,38 @@ public class EditaUser extends javax.swing.JFrame {
              
 
         }
+        } catch (SQLException ex) {
+            Logger.getLogger(EditaUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
          
     }
 
-    private void ActualizaBd() {
+    private void ActualizaBd(String nome, String email, String morada, String telefone, String nif, String login, String pass) {
+        Connection liga = LigaBD.ligacao();
         String sql ="UPDATE utilizador SET nome=?,email=?,morada=?,telefone=?,nif=?,password=? WHERE login = ?";
-        PreparedStatement ps = liga.prepareStatement(query);
+        PreparedStatement ps;
+        try {
+        ps = liga.prepareStatement(sql);
         ps.setString(1, nome);
         ps.setString(2,email);
         ps.setString(3,morada);
-        ps.setInt(4,telefone);
-        ps.setInt(5,nif);
-        ps.setString(6,login);
-        ps.setString(7,password);
-        int retorno = ps.executeUpdate();
-        if(retorno>0){
+        ps.setInt(4,Integer.parseInt(telefone));
+        ps.setInt(5,Integer.parseInt(nif));
+        ps.setString(6,pass);
+        ps.setString(7,Login.login);
+        int actualizar = ps.executeUpdate();
+        if(actualizar>0){
             System.out.printf("Novo registo actualizado");
         }else{
             System.out.println("Não foi possível actualizar BD!");
         }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EditaUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
     }
 }
