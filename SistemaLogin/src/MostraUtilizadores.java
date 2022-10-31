@@ -1,6 +1,11 @@
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,7 +23,8 @@ public class MostraUtilizadores extends javax.swing.JFrame {
      */
     public MostraUtilizadores() {
         initComponents();
-        MostraTabela();
+        PreencheTabela();
+        
     }
 
     /**
@@ -40,11 +46,11 @@ public class MostraUtilizadores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Email", "Morada", "Telefone", "Nif", "Password", "Login"
+                "IdUtilizador", "Nome", "Email", "Morada", "Telefone", "Nif", "Password", "Login"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -64,8 +70,8 @@ public class MostraUtilizadores extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,12 +128,35 @@ public class MostraUtilizadores extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
-    private void MostraTabela() {
-        //recolher tal e qual como formulário de edição, select * from utilizadores
-        Connection conn = LigaBD.ligacao();
-        String sql = "SELECT * FROM utilizador WHERE nome  = '"+Login.login+"'";
-        PreparedStatement ps;
+    public void PreencheTabela() {
+        
+       
+            
+        try {
+            PreparedStatement ps=null;
+            ResultSet rs=null;
+            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            Connection conexao = LigaBD.ligacao();
+            ps = conexao.prepareStatement("Select * from utilizador");
+            rs= ps.executeQuery();
+            rs.first();
+            int rowCount=dtm.getRowCount();
+            for (int i = rowCount - 1; i>=0; i--){
+            dtm.removeRow(i);
+            }
+            do{
+                dtm.addRow(new Object []{rs.getInt("IdUtilizador"),rs.getString("Nome"),rs.getString("Email"),rs.getString("Morada"),rs.getInt("Telefone"),rs.getString("Nif"),rs.getString("Password"),rs.getString("Login")});
+            }while(rs.next());
+        } catch (SQLException ex) {
+            Logger.getLogger(MostraUtilizadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+        
     }
+
+    
+     
+    
 
    
        

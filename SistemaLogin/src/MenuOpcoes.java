@@ -7,9 +7,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -120,7 +125,13 @@ public class MenuOpcoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        File ficheiro = new File("C:\\Users\\mneves\\Desktop\\SistemaLogin\\SistemaLogin\\SistemaLogin");
+        jTable1 tabela = new jTable1();
+        this.setVisible(false);
+        tabela.setVisible(true);   
+        
+     
+        
+        /*File ficheiro = new File("C:\\Users\\mneves\\Desktop\\SistemaLogin\\SistemaLogin\\SistemaLogin");
         File [] lista = ficheiro.listFiles();
         System.out.println(">>>Lista de Utilizadores<<<");
         for(int x=0;x<lista.length;x++){
@@ -129,7 +140,7 @@ public class MenuOpcoes extends javax.swing.JFrame {
             }else{
                System.out.println("Não existem utilizadores registados"); 
             }
-        }
+        }*/
 
 
 
