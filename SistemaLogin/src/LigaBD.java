@@ -39,6 +39,23 @@ public class LigaBD {
         ps.setString(7,password);
         ps.execute();
     }
+
+    static void EliminaUser(String query) {
+        Connection conn = LigaBD.ligacao(); 
+        PreparedStatement ps; 
+        try { 
+            ps = conn.prepareStatement(query); 
+            ps.execute(); 
+        } catch (SQLException ex) { 
+            Logger.getLogger(LigaBD.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
+    }
+
+    
+        
+        
+        
+    
     
     
     

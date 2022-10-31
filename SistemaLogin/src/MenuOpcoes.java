@@ -148,11 +148,18 @@ public class MenuOpcoes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        File ficheiro = new File (Login.login+".txt"); 
+        String user; 
+        user = Login.login; 
+        String query= "DELETE FROM utilizador WHERE login ='"+user+"'"; 
+        LigaBD.EliminaUser(query);
+        
+        
+        
+        /*File ficheiro = new File (Login.login+".txt"); 
             if(ficheiro.exists()){         
                ficheiro.delete();
                 System.out.println ("Utilizador eliminado");
-           }
+           }*/
         
         
         
@@ -212,10 +219,14 @@ public class MenuOpcoes extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
-                
-        EditaUser fr = new EditaUser();
+        MostraUtilizadores tabela = new MostraUtilizadores();
         this.setVisible(false);
-        fr.setVisible(true);
+        tabela.setVisible(true);   
+        
+        
+        /*EditaUser fr = new EditaUser();
+        this.setVisible(false);
+        fr.setVisible(true);*/
          
   
         
